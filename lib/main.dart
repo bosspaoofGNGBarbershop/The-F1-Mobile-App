@@ -1,69 +1,79 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());}
-class MyApp extends StatelessWidget {
+  runApp(MaterialApp(
+    home: Profile(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('The F1 Mobile App'),
-          backgroundColor: Colors.blue,
-        ),
-        body: SafeArea(
-          child: Center(
-            child: Container(
-              width: 300, // adjust as needed
-              padding: EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Expense Tracker'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Column(
                     children: [
                       Text(
-                        'Name:',
-                        style: TextStyle(fontSize: 24),
+                        'User Profile',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        'John Creus',
-                        style: TextStyle(fontSize: 24),
-                      ),
+                      SizedBox(height: 10),
+                      Icon(Icons.person, size: 100),
                     ],
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Age:',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        '24 years old',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        'Gender:',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      Text(
-                        'Male',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
+                SizedBox(height: 30),
+                Text(
+                  'Name',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('John Paolo Adoptante Creus'),
+                SizedBox(height: 20),
+                Text(
+                  'Email',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('johnpaolo.creus@g.batstate-u.edu.ph'),
+                SizedBox(height: 20),
+                Text(
+                  'Company',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('Batangas State University TNEU Balayan'),
+                SizedBox(height: 20),
+                Text(
+                  'Contact Number',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('09751285881'),
+              ],
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Log out logic here
+                },
+                child: Text('Log Out'),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
